@@ -45,10 +45,9 @@ const App: React.FC = () => {
     }
   }, []);
 
-  // AI 추천 데이터 로드
+  // AI 추천 데이터 로드 - 의존성 배열을 books.length로 수정하여 더 안정적으로 작동하게 함
   useEffect(() => {
     const fetchRecommendation = async () => {
-      if (books.length === 0 && recommendation) return; // 이미 있으면 패스 (간소화)
       setLoadingRec(true);
       const currentBookTitles = books.filter(b => !b.endDate).map(b => b.title);
       const rec = await getDailyRecommendation(currentBookTitles);
