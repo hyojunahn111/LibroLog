@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LibroLog</title>
+  <title>LibroLog - 독서 기록장</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,11 +28,11 @@
 <script type="importmap">
 {
   "imports": {
-    "react/": "https://esm.sh/react@^19.2.3/",
     "react": "https://esm.sh/react@^19.2.3",
-    "date-fns": "https://esm.sh/date-fns@^4.1.0",
     "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/",
     "@google/genai": "https://esm.sh/@google/genai@^1.37.0",
+    "date-fns": "https://esm.sh/date-fns@^4.1.0",
     "vite": "https://esm.sh/vite@^7.3.1",
     "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.2"
   }
@@ -41,7 +41,7 @@
 </head>
 <body>
   <div id="root"></div>
-  <!-- index.tsx 진입점 추가 -->
-  <script type="module" src="/index.tsx"></script>
+  <!-- Vite는 빌드 시 이 경로를 실제 자바스크립트 파일로 변환합니다. -->
+  <script type="module" src="./index.tsx"></script>
 </body>
 </html>
