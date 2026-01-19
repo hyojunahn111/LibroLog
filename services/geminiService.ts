@@ -1,11 +1,14 @@
 
 import { GoogleGenAI, Type } from "@google/genai";
 
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+// API 키를 가져오고 유효성 확인
+const apiKey = process.env.API_KEY;
 
 export const getBookDetails = async (title: string) => {
-  if (!title) return null;
+  if (!title || !apiKey) return null;
+  
   try {
+    const ai = new GoogleGenAI({ apiKey });
     const response = await ai.models.generateContent({
       model: "gemini-3-flash-preview",
       contents: `책 제목 "${title}"에 대한 정보를 한국어로 제공해줘. 줄거리와 카테고리를 포함해줘.`,
@@ -30,7 +33,10 @@ export const getBookDetails = async (title: string) => {
 };
 
 export const getDailyRecommendation = async (currentBooks: string[]) => {
+  if (!apiKey) return null;
+
   try {
+    const ai = new GoogleGenAI({ apiKey });
     const context = currentBooks.length > 0 
       ? `사용자가 읽고 있는 책: [${currentBooks.join(', ')}]. 비슷한 책 하나 추천.`
       : "유명한 스테디셀러 중 하나 추천.";
